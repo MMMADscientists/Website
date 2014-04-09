@@ -25,14 +25,14 @@ else
 	}
 }
 */
-//Use this for now cause i'm lazy
-$query = "DELETE FROM Property WHERE id='$prop_id'";
+//Use this for now cause i'm lazy, soooo lazy
+$query = "DELETE FROM Property WHERE idProperty='$prop_id'";
 $result = mysqli_query($dblink, $query);
 
 if (!$result) 
 {
-	echo mysqli_errno($root_link) . ": " . mysqli_error($root_link). "\n";
-	$message  = 'Invalid query: ' . mysqli_error($root_link) . "<br/>\n";
+	echo mysqli_errno($dblink) . ": " . mysqli_error($dblink). "\n";
+	$message  = 'Invalid query: ' . mysqli_error($dblink) . "<br/>\n";
 	$message .= 'Whole query: ' . $query;
 	die($message);
 }

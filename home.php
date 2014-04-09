@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+//Connects us to the database!
 include('connect.php');
 ?>
   <head>
@@ -9,8 +10,8 @@ include('connect.php');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Promenade Virtual Tours</title>
 
-    <link href="/firestrike/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="/firestrike/bootstrap/css/jumbotron.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="bootstrap/css/jumbotron.css" rel="stylesheet">
   </head>
   <body>
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
