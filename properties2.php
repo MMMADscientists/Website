@@ -4,7 +4,7 @@
 session_start();
 include('connect.php');
 $user = $_SESSION['user'];
-$prop_id = $_SESSION['prop_id'];
+$prop_id = $_POST['prop_id'];
 ?>
   <head>
     <meta charset="utf-8">
@@ -67,13 +67,14 @@ $prop_id = $_SESSION['prop_id'];
 						$room_name = $rows['name'];
 						$room_url = $rows['roomURL'];
 						
+						echo "<tr>\n";
 						echo "<td>$room_name</td>\n";
 						echo "<td>\n";
-						echo "  <button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-edit'>\n";
+						echo "  <button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-edit".$room_id."'>\n";
 						echo "    <span class='glyphicon glyphicon-pencil'></span>\n";
 						echo "  </button>\n";
 						//Edit Modal
-						echo "  <div class='modal fade' id='modal-edit' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>\n";
+						echo "  <div class='modal fade' id='modal-edit".$room_id."' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>\n";
 						echo "    <div class='modal-dialog'>\n";
 						echo "      <div class='modal-content'>\n";
 						echo "        <div class='modal-header'>\n";
@@ -88,8 +89,8 @@ $prop_id = $_SESSION['prop_id'];
 											//Probably going to need to do something with connections here
 						echo "          </div>\n";
 						echo "          <div class='modal-footer'>\n";
-						echo "            <button type='button' class='btn btn-default' data-dismiss='modalCancel</button>\n";
-						echo "			  <button type='button' class='btn btn-primary'>Update</button>\n";
+						echo "            <button type='button' class='btn btn-default' data-dismiss='modalCancel>Cancel</button>\n";
+						echo "			  <button type='submit' class='btn btn-primary'>Update</button>\n";
 						echo "          </div>\n";
 						echo "        </form>\n";
 						echo "      </div>\n";
@@ -99,12 +100,12 @@ $prop_id = $_SESSION['prop_id'];
 						
 						echo "</td>\n";
 						echo "<td>\n";
-						echo "<td>\n"
-						echo "  <button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-delete'>\n";
+						echo "<td>\n";
+						echo "  <button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-delete".$room_id."'>\n";
 						echo "    <span class='glyphicon glyphicon-remove'></span>\n";
 						echo "  </button>\n";
 						//Delete Modal
-						echo "  <div class='modal fade' id='modal-delete' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>\n";
+						echo "  <div class='modal fade' id='modal-delete".$room_id."' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>\n";
 						echo "    <div class='modal-dialog'>\n";
 						echo "      <div class='modal-content'>\n";
 						echo "        <div class='modal-header'>\n";
@@ -113,11 +114,12 @@ $prop_id = $_SESSION['prop_id'];
 						echo "        </div>\n";
 						echo "        <form name='room_delete' method='post' action='room_del.php'>\n";
 						echo "          <div class='modal-body'>\n";
+						echo "            <input type='hidden' name='room_id' id='room_id' value='$room_id'>\n";
 						echo "            <p>Are you sure you want to delete $room_name from this property?</p>\n";
 						echo "          </div>\n";
 						echo "          <div class='modal-footer'>\n";
 						echo "            <button type='button' class='btn btn-default' data-dismiss='modal'>No</button>\n";
-						echo "			  <button type='button' class='btn btn-primary'>Yes</button>\n";
+						echo "			  <button type='submit' class='btn btn-primary'>Yes</button>\n";
 						echo "          </div>\n";
 						echo "        </form>\n";
 						echo "      </div>\n";
@@ -125,6 +127,7 @@ $prop_id = $_SESSION['prop_id'];
 						echo "  </div>\n";
 						//Delete Modal -- End
 						echo "</td>\n";
+						echo "</tr>\n";
 					}
 					?>
 				</tbody>

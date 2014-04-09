@@ -47,7 +47,7 @@ $user = $_SESSION['user'];
 		</div>
 		
 		<?php
-		$query = "SELECT idProperty, address, houseURL FROM Property WHERE username = $user";
+		$query = "SELECT idProperty, address, houseURL FROM Property WHERE username = '$user'";
 		$result = mysqli_query($dblink, $query);
 		?>
 		
@@ -60,25 +60,26 @@ $user = $_SESSION['user'];
 				</thead>
 				<tbody>
 					<?php
-					while ($rows = mysqli_num_rows($result))
+					while ($rows = mysqli_fetch_array($result))
 					{
 						$prop_id = $rows['idProperty'];
 						$address = $rows['address'];
 						$house_url = $rows['houseURL'];
 						
+						echo "<tr>\n";
 						echo "<td>\n";
-						echo "  <form name='properties' method='post' action='property.php'>\n";
+						echo "  <form name='properties' method='post' action='properties2.php'>\n";
 						echo "    <input type='hidden' id='prop_id' name='prop_id' value='$prop_id'>\n";
 						echo "    <button type='submit' class='btn btn-success'>Go!</button>\n";
 						echo "  </form>\n";
 						echo "</td>\n";
 						echo "<td>$address</td>\n";
 						echo "<td>\n";
-						echo "  <button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-delete'>\n";
+						echo "  <button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-delete".$prop_id."'>\n";
 						echo "    <span class='glyphicon glyphicon-remove'></span>\n";
 						echo "  </button>\n";
 						//Delete Modal
-						echo "  <div class='modal fade' id='modal-delete' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>\n";
+						echo "  <div class='modal fade' id='modal-delete".$prop_id."' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>\n";
 						echo "    <div class='modal-dialog'>\n";
 						echo "      <div class='modal-content'>\n";
 						echo "        <div class='modal-header'>\n";
@@ -99,6 +100,7 @@ $user = $_SESSION['user'];
 						echo "  </div>\n";
 						//Delete Modal -- End
 						echo "</td>\n";
+						echo "</tr>\n";
 					}
 					?>
 				</tbody>

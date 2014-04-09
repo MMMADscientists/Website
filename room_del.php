@@ -26,13 +26,13 @@ else
 }
 */
 //Use this for now cause i'm lazy
-$query = "DELETE FROM Room WHERE id='$room_id'";
+$query = "DELETE FROM Room WHERE idRoom='$room_id'";
 $result = mysqli_query($dblink, $query);
 
 if (!$result) 
 {
-	echo mysqli_errno($root_link) . ": " . mysqli_error($root_link). "\n";
-	$message  = 'Invalid query: ' . mysqli_error($root_link) . "<br/>\n";
+	echo mysqli_errno($dblink) . ": " . mysqli_error($dblink). "\n";
+	$message  = 'Invalid query: ' . mysqli_error($dblink) . "<br/>\n";
 	$message .= 'Whole query: ' . $query;
 	die($message);
 }

@@ -2,7 +2,7 @@
 $dbbase = 'promenadevt';               
 $dbuser = 'awsuser';         // Your MySQL username
 $dbpass = 'promenade';     // ...and password
-$dbhost = 'promenadevt.cm8ddcjx8fni.us-west-2.rds.amazonaws.com:3306';  // Internal IP for MYSQL Server
+$dbhost = 'promenadevt.cm8ddcjx8fni.us-west-2.rds.amazonaws.com';  // Internal IP for MYSQL Server
 
 // connect to database
 $dblink = mysqli_connect($dbhost, $dbuser, $dbpass) 
