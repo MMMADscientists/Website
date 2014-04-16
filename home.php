@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-//Connects us to the database!
 include('connect.php');
 ?>
   <head>
@@ -12,7 +11,11 @@ include('connect.php');
 
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="bootstrap/css/jumbotron.css" rel="stylesheet">
+
+	<!-- This Line Makes the Little Tab Icon Show Up -->
+	<link rel="shortcut icon" href="bootstrap/img/globe_logo_favicon.ico">
   </head>
+
   <body>
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		  <div class="container">
@@ -23,7 +26,7 @@ include('connect.php');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			  <a class="navbar-brand" href="home.php">PromenadeVT</a>
+			  <a class="navbar-brand" href="home.php"> <img src='bootstrap/img/globe_logo.png' width="30" height="30"> PromenadeVT </a>
 			</div>
 			<div class="navbar-collapse collapse">
 			  <form class="navbar-form navbar-right" name="login" method="post" action="verify.php">
@@ -33,17 +36,20 @@ include('connect.php');
 				<div class="form-group">
 				  <input id="password" name="password" type="password" placeholder="Password" class="form-control">
 				</div>
-				<button type="submit" class="btn btn-success">Sign in</button>
+				<button type="submit" class="btn btn-register">Sign in</button>
+				<!--Added Register Button Paragraph DL -->
+				<button type="register" class="btn btn-register">Register</button>
 			  </form>
+			  
 			</div><!--/.navbar-collapse -->
 		  </div>
 		</div>
 		
 		<div class="jumbotron">
 			<div class="container">
-				<img src='/firestrike/bootstrap/img/globe_logo.png'>
-				<h1>Promenade Virtual Tours</h1>
-				<p>The sexiest and laziest tour you will ever take of any potential living space!</p>			
+				<center> <img src='bootstrap/img/globe_logo.png'> </center>
+				<center> <h1> <font color=#F2F5F6>Promenade Virtual Tours</font> </h1> </center>
+				<center> <p> <font color=#080808>Making A Virtual Tour Of Your House, Simple and Easy</font> </p> <c/enter>
 			</div>
 		</div>
 
@@ -52,7 +58,14 @@ include('connect.php');
       <div class="row">
         <div class="col-md-4">
           <h2>About</h2>
-          <p>Just a group of three Michael's, a Doug, and an Aaron who are passionate about touring property. They are so passionate that they created this application that allows users to tour houses, apartments, and even mansions. Sadly though, there is a significant lack of firestrikes in the current build and most likely future builds of this application. </p>
+          <!-- <p>Just a group of three Michael's, a Doug, and an Aaron who are passionate about touring property. They are so passionate that they created this application that allows users to tour houses, apartments, and even mansions. Sadly though, there is a significant lack of firestrikes in the current build and most likely future builds of this application. </p> -->
+        	
+        	<!--Added This Paragraph DL -->
+        	<p>In the world of housing, touring a new place to live can waste large amounts of time and effort.  With Promenade VT, we strive to make that 
+        		easier and more convienient for anyone and everyone.  Simply put, with our software, you can create high quality 3D virtual tours of your home
+        		to later imbed into your website.  Sign In or Register and get started today!
+        	</p>
+
         </div>
         <div class="col-md-4">
           <h2>FAQ</h2>
@@ -79,8 +92,8 @@ include('connect.php');
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/firestrike/bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/firestrike/bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

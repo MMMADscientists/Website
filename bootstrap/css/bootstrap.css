@@ -126,6 +126,7 @@ select {
 button,
 html input[type="button"],
 input[type="reset"],
+input[type="register"],
 input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
@@ -2120,6 +2121,52 @@ fieldset[disabled] .btn-primary.active {
   color: #428bca;
   background-color: #fff;
 }
+/* Added to Make Register Type Button (Not sure if Needed) DL */
+.btn-register {
+  color: #fff;
+  background-color: #445878;
+  border-color: #31353d;
+}
+.btn-register:hover,
+.btn-register:focus,
+.btn-register:active,
+.btn-register.active,
+.open .dropdown-toggle.btn-register {
+  color: #fff;
+  background-color: #92cdcf;
+  border-color: #31353d;
+}
+.btn-register:active,
+.btn-register.active,
+.open .dropdown-toggle.btn-register {
+  background-image: none;
+}
+.btn-register.disabled,
+.btn-register[disabled],
+fieldset[disabled] .btn-register,
+.btn-register.disabled:hover,
+.btn-register[disabled]:hover,
+fieldset[disabled] .btn-register:hover,
+.btn-register.disabled:focus,
+.btn-success[disabled]:focus,
+fieldset[disabled] .btn-register:focus,
+.btn-register.disabled:active,
+.btn-register[disabled]:active,
+fieldset[disabled] .btn-register:active,
+.btn-register.disabled.active,
+.btn-register[disabled].active,
+fieldset[disabled] .btn-register.active {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+.btn-register .badge {
+  color: #5cb85c;
+  background-color: #fff;
+}
+
+/* End Added Register Button Code  */
+
+
 .btn-success {
   color: #fff;
   background-color: #5cb85c;
@@ -4020,8 +4067,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-link:hover {
   color: #333;
 }
+
+ /* Navigation Bar Edit Color Here -- DL */
 .navbar-inverse {
-  background-color: #222;
+  background-color: #31353d;
   border-color: #080808;
 }
 .navbar-inverse .navbar-brand {
@@ -4364,11 +4413,13 @@ a.list-group-item.active > .badge,
 .nav-pills > li > a > .badge {
   margin-left: 3px;
 }
+
+/* Changed the Background Color -- DL */
 .jumbotron {
   padding: 30px;
   margin-bottom: 30px;
   color: inherit;
-  background-color: #eee;
+  background-color: #445878;
 }
 .jumbotron h1,
 .jumbotron .h1 {

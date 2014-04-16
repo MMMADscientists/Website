@@ -9,8 +9,8 @@ include('connect.php');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Promenade Virtual Tours</title>
 
-    <link href="/firestrike/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/firestrike/bootstrap/css/jumbotron.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="bootstrap/css/jumbotron.css" rel="stylesheet">
   </head>
   <body>
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -52,8 +52,8 @@ include('connect.php');
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/firestrike/bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/firestrike/bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
