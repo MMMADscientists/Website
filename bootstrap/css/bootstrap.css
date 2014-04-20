@@ -2121,7 +2121,7 @@ fieldset[disabled] .btn-primary.active {
   color: #428bca;
   background-color: #fff;
 }
-/* Added to Make Register Type Button (Not sure if Needed) DL */
+/* Added to Make Register Type Button (Not sure if Needed) Doug */
 .btn-register {
   color: #fff;
   background-color: #445878;
@@ -4068,7 +4068,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #333;
 }
 
- /* Navigation Bar Edit Color Here -- DL */
+ /* Navigation Bar Edit Color Here -- Doug */
 .navbar-inverse {
   background-color: #31353d;
   border-color: #080808;
@@ -4414,7 +4414,7 @@ a.list-group-item.active > .badge,
   margin-left: 3px;
 }
 
-/* Changed the Background Color -- DL */
+/* Changed the Background Color -- Doug */
 .jumbotron {
   padding: 30px;
   margin-bottom: 30px;
@@ -5195,10 +5195,18 @@ button.close {
   filter: alpha(opacity=50);
   opacity: .5;
 }
+
+/* Modal Here -- Edited by Doug*/
 .modal-header {
   min-height: 16.42857143px;
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
+  background-color: #445878;
+  color: #F2F5F6;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  
 }
 .modal-header .close {
   margin-top: -2px;
@@ -5206,6 +5214,7 @@ button.close {
 .modal-title {
   margin: 0;
   line-height: 1.42857143;
+  /*background-color: #445878*/
 }
 .modal-body {
   position: relative;
@@ -5216,6 +5225,7 @@ button.close {
   margin-top: 15px;
   text-align: right;
   border-top: 1px solid #e5e5e5;
+  /*background-color: #31353d;*/
 }
 .modal-footer .btn + .btn {
   margin-bottom: 0;

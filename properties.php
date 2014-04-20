@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 session_start();
-include('connect.php');
+include('internal/connect.php');
 $user = $_SESSION['user'];
 ?>
   <head>
@@ -11,8 +11,12 @@ $user = $_SESSION['user'];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Promenade Virtual Tours</title>
 
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="bootstrap/css/jumbotron.css" rel="stylesheet">
+
+	<!-- This Line Makes the Little Tab Icon Show Up -->
+	<link rel="shortcut icon" href="bootstrap/img/globe_logo_favicon.ico">
+
   </head>
   <body>
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -24,16 +28,15 @@ $user = $_SESSION['user'];
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			  <a class="navbar-brand" href="home.php">PromenadeVT</a>
+			  <a class="navbar-brand" href="home.php"> <img src='bootstrap/img/globe_logo.png' width="30" height="30"> PromenadeVT </a>
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="dashboard.php">Dashboard</a></li>
 					<li class="active"><a href="properties.php">My Properties</a></li>
 					<li><a href="settings.php">Settings</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li style="color:white"><?php echo "User: $user"; ?></li>
+					<li style="color:white"><?php echo "Welcome $user"; ?></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		  </div>
@@ -41,8 +44,8 @@ $user = $_SESSION['user'];
 		
 		<div class="jumbotron">
 			<div class="container">
-				<h1>My Properties</h1>
-				<p>Fill me with the users properties and have that lead to the actual property and its rooms!</p>
+				<h1> <img src='bootstrap/img/properties.png' width="150" height="150"> <font color=#F2F5F6>My Properties</font> </h1>
+				<p> <font color=#080808>Select A Property To View, Edit, Delete or Add To</font> </p>
 			</div>
 		</div>
 		
@@ -70,6 +73,7 @@ $user = $_SESSION['user'];
 						echo "<td>\n";
 						echo "  <form name='properties' method='post' action='properties2.php'>\n";
 						echo "    <input type='hidden' id='prop_id' name='prop_id' value='$prop_id'>\n";
+						echo "    <input type='hidden' id='address' name='address' value='$address'>\n";
 						echo "    <button type='submit' class='btn btn-success'>Go!</button>\n";
 						echo "  </form>\n";
 						echo "</td>\n";

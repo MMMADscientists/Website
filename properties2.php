@@ -2,9 +2,10 @@
 <html lang="en">
 <?php
 session_start();
-include('connect.php');
+include('internal/connect.php');
 $user = $_SESSION['user'];
 $prop_id = $_POST['prop_id'];
+$address = $_POST['address'];
 ?>
   <head>
     <meta charset="utf-8">
@@ -12,8 +13,12 @@ $prop_id = $_POST['prop_id'];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Promenade Virtual Tours</title>
 
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="bootstrap/css/jumbotron.css" rel="stylesheet">
+
+	<!-- This Line Makes the Little Tab Icon Show Up -->
+	<link rel="shortcut icon" href="bootstrap/img/globe_logo_favicon.ico">
+
   </head>
   <body>
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -25,16 +30,15 @@ $prop_id = $_POST['prop_id'];
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			  <a class="navbar-brand" href="home.php">PromenadeVT</a>
+			  <a class="navbar-brand" href="home.php"> <img src='bootstrap/img/globe_logo.png' width="30" height="30"> PromenadeVT </a>
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="dashboard.php">Dashboard</a></li>
 					<li class="active"><a href="properties.php">My Properties</a></li>
 					<li><a href="settings.php">Settings</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li style="color:white"><?php echo "User: $user"; ?></li>
+					<li style="color:white"><?php echo "Welcome $user"; ?></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		  </div>
@@ -42,8 +46,13 @@ $prop_id = $_POST['prop_id'];
 		
 		<div class="jumbotron">
 			<div class="container">
-				<h1>Specific Property</h1>
-				<p>This page will show a chosen property, probably the webGL and provide the edit button</p>
+				<?php
+				echo "<h1> <font color=#F2F5F6> $address </font> </h1>";
+				?>
+
+				<!-- Kosler, Why this no worky? -->
+				<script src = 'http://54.186.153.0/API/embedjs.php?i=prop_id'></script>
+
 			</div>
 		</div>
 		
@@ -53,11 +62,53 @@ $prop_id = $_POST['prop_id'];
 		?>
 		
 		<div class="container">
+			<p>	
+				<button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-add'>
+					<span class='glyphicon glyphicon-plus'></span>
+				</button>
+				Add A New Room
+			</p>
+
+
+			<!-- Add Model -->
+			<?php
+				//Edit Modal
+				echo "  <div class='modal fade' id='modal-add' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>\n";
+				echo "    <div class='modal-dialog'>\n";
+				echo "      <div class='modal-content'>\n";
+				echo "        <div class='modal-header'>\n";
+				echo "          <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>\n";
+				echo "          <h4 class='modal-title' id='myModalLabel'>Add a New Room</h4>\n";
+				echo "        </div>\n";
+				//echo "        <form name='room_update' method='post' action='room_update.php'>\n";
+				echo "          <div class='modal-body'>\n";
+				//echo "            <input type='hidden' name='room_id' id='room_id' value='$room_id'>\n";
+				echo "            <label>Room Name:</label>\n";
+				echo "       	  <input type='text' name='room_name' id='room_name' value='$room_name' size='15'>\n";
+				echo "			  <br>";
+				echo "			  <input type='file' name='myFile'>";
+									//Probably going to need to do something with connections here
+				echo "          </div>\n";
+				echo "          <div class='modal-footer'>\n";
+				echo "            <button type='button' class='btn btn-default' data-dismiss='modalCancel>Cancel</button>\n";
+				echo "			  <button type='submit' class='btn btn-primary'>Update</button>\n";
+				echo "          </div>\n";
+				//echo "        </form>\n";
+				echo "      </div>\n";
+				echo "    </div>\n";
+				echo "  </div>\n";
+				//Edit Modal -- End
+			?>
+
+
+
+
+
 			<table class="table">
 				<thead>
 					<th>Name</th>
 					<th>Edit</th>
-					<th>Delete</th>
+					<th> </th>
 				</thead>
 				<tbody>
 					<?php
@@ -86,7 +137,6 @@ $prop_id = $_POST['prop_id'];
 						echo "            <input type='hidden' name='room_id' id='room_id' value='$room_id'>\n";
 						echo "            <label>Name:</label>\n";
 						echo "       	  <input type='text' name='room_name' id='room_name' value='$room_name' size='15'>\n";
-											//Probably going to need to do something with connections here
 						echo "          </div>\n";
 						echo "          <div class='modal-footer'>\n";
 						echo "            <button type='button' class='btn btn-default' data-dismiss='modalCancel>Cancel</button>\n";
@@ -130,8 +180,14 @@ $prop_id = $_POST['prop_id'];
 						echo "</tr>\n";
 					}
 					?>
+
+					<tr>
+					
+					</tr>
+
+
 				</tbody>
-			</table>	
+			</table>
 		</div>
 		
       <footer>

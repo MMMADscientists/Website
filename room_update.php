@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connect.php");
+include('internal/connect.php');
 $refering_page = $_SERVER['HTTP_REFERER'];
 
 $room_id = $_POST['room_id'];
