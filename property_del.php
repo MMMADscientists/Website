@@ -37,5 +37,37 @@ if (!$result)
 	die($message);
 }
 
+$check_query = "SELECT idProperty FROM Room WHERE idProperty='$prop_id'";
+$check_result = mysqli_query($dblink, $check_query);
+$numrows = mysqli_num_rows($check_result);
+if($numrows > 0)
+{
+	$room_query = "DELETE FROM Room WHERE idProperty='$prop_id'";
+	$room_result = mysqli_query($dblink, $query);
+	if (!$room_result) 
+ {
+	echo mysqli_errno($dblink) . ": " . mysqli_error($dblink). "\n";
+	$message  = 'Invalid query: ' . mysqli_error($dblink) . "<br/>\n";
+	$message .= 'Whole query: ' . $room_query;
+	die($message);
+ }
+}
+
+$check_query2 = "SELECT idProperty FROM Connection WHERE idProperty='$prop_id'";
+$check_result2 = mysqli_query($dblink, $check_query2);
+$numrows2 = mysqli_num_rows($check_result2);
+if($numrows2 > 0)
+{
+	$conn_query = "DELETE FROM Connection WHERE idProperty='$prop_id'";
+	$conn_result = mysqli_query($dblink, $conn_result);
+	if (!$conn_result) 
+ {
+	echo mysqli_errno($dblink) . ": " . mysqli_error($dblink). "\n";
+	$message  = 'Invalid query: ' . mysqli_error($dblink) . "<br/>\n";
+	$message .= 'Whole query: ' . $conn_query;
+	die($message);
+ }
+}
+
 header("location:properties.php");
 ?>

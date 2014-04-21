@@ -41,30 +41,15 @@ include('internal/connect.php');
 		
 		<div class="jumbotron">
 			<div class="container">
-				<h1>FAQ</h1>
-				<p>The sexiest and laziest answers to your frequently asked questions!</p>
+				<h1>Success!</h1>
+				<p>You are now registered with PromenadeVT.</p>
 			</div>
 		</div>
-		<div class="container">
-				<h4>What does MMMADScientists mean?</h4>
-		  <p>Well pretty girl it means Michael Michael Michael Aaron Doug who all happen to be scientists in a computational nature!</p>
-				<br/>
-		  <h4>Why would I use your app?</h4>
-		  <p>Because you'd be dumb not to...</p>
-				<br/>
-				<h4>My Photospheres are coming out all crazy! Why?</h4>
-				<p>Probably because you suck at taking photos.</p>
-				<br/>
-				<h4>Can I add these tours to my website?</h4>
-				<p>Of course you can! Within a property's page you will find <strong>some sort of method we decided to use</strong> for you to implement your tours directly to your site!</p>
-				<br/>
-				<h4>Why do you have so many exclamation marks in your answer?!</h4>
-				<p>Because this is exciting!</p>
-				<br/>
-    <footer>
-      <p>&copy; MMMadScientists 2014</p>
-    </footer>
-  <div> <!-- /container -->
+
+      <footer>
+        <p>&copy; MMMadScientists 2014</p>
+      </footer>
+    </div> <!-- /container -->
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

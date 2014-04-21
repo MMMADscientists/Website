@@ -16,27 +16,20 @@ $user = stripslashes($user);
 $pass = stripslashes($pass);
 $user = mysql_real_escape_string($user);
 $pass = mysql_real_escape_string($pass);
-//Now check if the user/pass are in table and match up
-$query = "SELECT * FROM User WHERE username='$user' and password='$pass'";
-$result = mysqli_query($dblink, $query);
-/*
-$salt = '';
-while($rows = mysqli_fetch_array($result))
-{
-	//if(count($rows) == 1)
-		$salt = $rows['salt'];
-	//else
-		//die("There are multiple users with the same name, Please contact customer support!");
-}
 
-//hash and salt the password given
+$query = "Select * FROM User WHERE username = '$user'";
+$result = mysqli_query($dblink, $query);
+
+$rows = mysqli_fetch_array($result);
+
+$salt = $rows['salt'];
+$encrypted_password = $rows['password'];
+
 $hash = base64_encode(sha1($pass . $salt) . $salt);
 
-$encrypted_query = "SELECT * FROM User WHERE username='$user' and password='$hash'";
-$encrypted_result = mysqli_query($dblink, $encrypted_query);
-*/
-$count = mysqli_num_rows($result);
-if($count == 1)
+$hash = substr($hash,0,45);
+
+if($hash == $rows['password'])
 {
 	$_SESSION['user'] = $user;
 	header("location:properties.php");
@@ -45,8 +38,6 @@ else
 {
 	//redirect them to failed login page
 	header("location:login_failure.php");
-	
 }
-
 
 ?>

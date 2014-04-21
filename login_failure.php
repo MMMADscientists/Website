@@ -37,10 +37,10 @@ include('internal/connect.php');
 				<div class="form-group">
 				  <input id="password" name="password" type="password" placeholder="Password" class="form-control">
 				</div>
-				<button type="submit" class="btn btn-success">Sign in</button>
+				<button type="submit" class="btn btn-register">Sign in</button>
 
 				<!--Added Register Button Paragraph DL -->
-				<button type="register" class="btn btn-register">Register</button>
+				<a class="btn btn-register" href="register.php">Register</a>
 
 			  </form>
 			</div><!--/.navbar-collapse -->

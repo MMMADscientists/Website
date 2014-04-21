@@ -48,17 +48,25 @@ $address = $_POST['address'];
 			<div class="container">
 				<?php
 				echo "<h1> <font color=#F2F5F6> $address </font> </h1>";
-				?>
+				
 
-				<!-- Kosler, Why this no worky? -->
-				<script src = 'http://54.186.153.0/API/embedjs.php?i=prop_id'></script>
+				//<!-- Kosler, Why this no worky? -->
+				//echo "<script src = 'http://54.186.153.0/API/embed_js.php?i=$prop_id'></script>\n";
+				?>
 
 			</div>
 		</div>
 		
 		<?php
-		$query = "SELECT idRoom, name, roomURL FROM Room Where idProperty = $prop_id";
+		$query = "SELECT * FROM Room WHERE idProperty='$prop_id'";
 		$result = mysqli_query($dblink, $query);
+		if (!$result) 
+		{
+		echo mysqli_errno($dblink) . ": " . mysqli_error($dblink). "\n";
+		$message  = 'Invalid query: ' . mysqli_error($dblink) . "<br/>\n";
+		$message .= 'Whole query: ' . $query;
+		die($message);
+		}
 		?>
 		
 		<div class="container">
@@ -72,7 +80,6 @@ $address = $_POST['address'];
 
 			<!-- Add Model -->
 			<?php
-				//Edit Modal
 				echo "  <div class='modal fade' id='modal-add' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>\n";
 				echo "    <div class='modal-dialog'>\n";
 				echo "      <div class='modal-content'>\n";
@@ -80,20 +87,22 @@ $address = $_POST['address'];
 				echo "          <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>\n";
 				echo "          <h4 class='modal-title' id='myModalLabel'>Add a New Room</h4>\n";
 				echo "        </div>\n";
-				//echo "        <form name='room_update' method='post' action='room_update.php'>\n";
+				echo "        <form name='room_update' method='post' action='room_add.php'>\n";
 				echo "          <div class='modal-body'>\n";
-				//echo "            <input type='hidden' name='room_id' id='room_id' value='$room_id'>\n";
-				echo "            <label>Room Name:</label>\n";
-				echo "       	  <input type='text' name='room_name' id='room_name' value='$room_name' size='15'>\n";
-				echo "			  <br>";
-				echo "			  <input type='file' name='myFile'>";
+				echo "            <input type='hidden' name='prop_id' id='prop_id' value='$prop_id'>\n";
+				echo "            <label for='room_name'>Room Name:</label>\n";
+				echo "       	    <input type='text' name='room_name' id='room_name' size='15' required>\n";
+				echo "            <br>\n";
+				echo "            <br>\n";
+				echo "            <label for='photo_file'>Room PhotoSphere:</label>\n";
+				echo "			         <input type='file' name='photo_file' id='photo_file'>\n";
 									//Probably going to need to do something with connections here
 				echo "          </div>\n";
 				echo "          <div class='modal-footer'>\n";
-				echo "            <button type='button' class='btn btn-default' data-dismiss='modalCancel>Cancel</button>\n";
-				echo "			  <button type='submit' class='btn btn-primary'>Update</button>\n";
+				echo "            <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>\n";
+				echo "			         <button type='submit' class='btn btn-primary'>Add</button>\n";
 				echo "          </div>\n";
-				//echo "        </form>\n";
+				echo "        </form>\n";
 				echo "      </div>\n";
 				echo "    </div>\n";
 				echo "  </div>\n";
@@ -108,7 +117,7 @@ $address = $_POST['address'];
 				<thead>
 					<th>Name</th>
 					<th>Edit</th>
-					<th> </th>
+					<th>Delete</th>
 				</thead>
 				<tbody>
 					<?php
@@ -139,7 +148,7 @@ $address = $_POST['address'];
 						echo "       	  <input type='text' name='room_name' id='room_name' value='$room_name' size='15'>\n";
 						echo "          </div>\n";
 						echo "          <div class='modal-footer'>\n";
-						echo "            <button type='button' class='btn btn-default' data-dismiss='modalCancel>Cancel</button>\n";
+						echo "            <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>\n";
 						echo "			  <button type='submit' class='btn btn-primary'>Update</button>\n";
 						echo "          </div>\n";
 						echo "        </form>\n";

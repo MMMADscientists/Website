@@ -55,10 +55,45 @@ $user = $_SESSION['user'];
 		?>
 		
 		<div class="container">
+
+			<p>	
+				<button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-add'>
+					<span class='glyphicon glyphicon-plus'></span>
+				</button>
+				Add A New Property
+			</p>
+
+			<!-- Add Model -->
+			<?php
+				echo "  <div class='modal fade' id='modal-add' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>\n";
+				echo "    <div class='modal-dialog'>\n";
+				echo "      <div class='modal-content'>\n";
+				echo "        <div class='modal-header'>\n";
+				echo "          <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>\n";
+				echo "          <h4 class='modal-title' id='myModalLabel'>Add a New Property</h4>\n";
+				echo "        </div>\n";
+				echo "        <form name='property_add' method='post' action='property_add.php'>\n";
+				echo "          <div class='modal-body'>\n";
+				echo "            <label for='new_address'>Property Address:</label>\n";
+				echo "       	    <input type='text' name='new_address' id='new_address' size='15' required>\n";
+				echo "          </div>\n";
+				echo "          <div class='modal-footer'>\n";
+				echo "            <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>\n";
+				echo "			         <button type='submit' class='btn btn-primary'>Update</button>\n";
+				echo "          </div>\n";
+				echo "        </form>\n";
+				echo "      </div>\n";
+				echo "    </div>\n";
+				echo "  </div>\n";
+				//Edit Modal -- End
+			?>
+
+
 			<table class="table">
 				<thead>
 					<th>Go To</th>
 					<th>Address</th>
+					<th>Edit</th>
 					<th>Delete</th>
 				</thead>
 				<tbody>
@@ -70,14 +105,47 @@ $user = $_SESSION['user'];
 						$house_url = $rows['houseURL'];
 						
 						echo "<tr>\n";
+						// GO Button
 						echo "<td>\n";
-						echo "  <form name='properties' method='post' action='properties2.php'>\n";
+						echo "  <form name='properties' method='post' action='rooms.php'>\n";
 						echo "    <input type='hidden' id='prop_id' name='prop_id' value='$prop_id'>\n";
 						echo "    <input type='hidden' id='address' name='address' value='$address'>\n";
 						echo "    <button type='submit' class='btn btn-success'>Go!</button>\n";
 						echo "  </form>\n";
 						echo "</td>\n";
 						echo "<td>$address</td>\n";
+
+						// Edit Button
+						echo "<td>\n";
+						echo "  <button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-edit".$prop_id."'>\n";
+						echo "    <span class='glyphicon glyphicon-pencil'></span>\n";
+						echo "  </button>\n";
+						//Edit Modal
+						echo "  <div class='modal fade' id='modal-edit".$prop_id."' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>\n";
+						echo "    <div class='modal-dialog'>\n";
+						echo "      <div class='modal-content'>\n";
+						echo "        <div class='modal-header'>\n";
+						echo "          <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>\n";
+						echo "          <h4 class='modal-title' id='myModalLabel'>Edit Property Name</h4>\n";
+						echo "        </div>\n";
+						echo "        <form name='prop_edit' method='post' action='property_update.php'>\n";
+						echo "          <div class='modal-body'>\n";
+						echo "            <input type='hidden' name='prop_id' id='prop_id' value='$prop_id'>\n";
+						echo "            <label for='address'>Name:</label>\n";
+						echo "       	    <input type='text' name='address' id='address' value='$address' size='15'>\n";
+						echo "          </div>\n";
+						echo "          <div class='modal-footer'>\n";
+						echo "            <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>\n";
+						echo "			         <button type='submit' class='btn btn-primary'>Update</button>\n";
+						echo "          </div>\n";
+						echo "        </form>\n";
+						echo "      </div>\n";
+						echo "    </div>\n";
+						echo "  </div>\n";
+						//Edit Modal -- End
+						echo "</td>\n";
+
+						// Delete Button
 						echo "<td>\n";
 						echo "  <button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-delete".$prop_id."'>\n";
 						echo "    <span class='glyphicon glyphicon-remove'></span>\n";
@@ -90,13 +158,14 @@ $user = $_SESSION['user'];
 						echo "          <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>\n";
 						echo "          <h4 class='modal-title' id='myModalLabel'>Delete Property</h4>\n";
 						echo "        </div>\n";
-						echo "        <form name='room_delete' method='post' action=property_del.php'>\n";
+						echo "        <form name='prop_delete' method='post' action='property_del.php'>\n";
 						echo "          <div class='modal-body'>\n";
+						echo "            <input type='hidden' name='prop_id' id='prop_id' value='$prop_id'>\n";
 						echo "            <p>Are you sure you want to delete $address from your profile?</p>\n";
 						echo "          </div>\n";
 						echo "          <div class='modal-footer'>\n";
 						echo "            <button type='button' class='btn btn-default' data-dismiss='modal'>No</button>\n";
-						echo "			  <button type='button' class='btn btn-primary'>Yes</button>\n";
+						echo "			         <button type='submit' class='btn btn-primary'>Yes</button>\n";
 						echo "          </div>\n";
 						echo "        </form>\n";
 						echo "      </div>\n";

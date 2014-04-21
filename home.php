@@ -38,7 +38,7 @@ include('internal/connect.php');
 				</div>
 				<button type="submit" class="btn btn-register">Sign in</button>
 				<!--Added Register Button Paragraph DL -->
-				<button type="register" class="btn btn-register">Register</button>
+				<a class="btn btn-register" href="register.php">Register</a>
 			  </form>
 			  
 			</div><!--/.navbar-collapse -->
@@ -49,7 +49,7 @@ include('internal/connect.php');
 			<div class="container">
 				<center> <img src='bootstrap/img/globe_logo.png'> </center>
 				<center> <h1> <font color=#F2F5F6>Promenade Virtual Tours</font> </h1> </center>
-				<center> <p> <font color=#080808>Making A Virtual Tour Of Your House, Simple and Easy</font> </p> <c/enter>
+				<center> <p> <font color=#080808>Making a Virtual Tour of Your House, Simple and Easy</font> </p> <c/enter>
 			</div>
 		</div>
 
@@ -70,16 +70,16 @@ include('internal/connect.php');
         <div class="col-md-4">
           <h2>FAQ</h2>
           <h4>What does MMMADScientists mean?</h4>
-		  <p>Well pretty girl it means Michael Michael Michael Aaron Doug who all happen to be scientists in a computational nature!</p>
-		  <h4>Why would I use your app?</h4>
-		  <p>Because you'd be dumb not to...</p>
+										<p>Well pretty girl it means Michael Michael Michael Aaron Doug who all happen to be scientists in a computational nature!</p>
+										<h4>Why would I use your app?</h4>
+										<p>Because you'd be dumb not to...</p>
           <p><a class="btn btn-default" href="faq.php" role="button">More &raquo;</a></p>
        </div>
         <div class="col-md-4">
           <h2>Contact</h2>
           <p>123 Fake St.</p>
-		  <p>Totally Real, 'Murica</p>
-		  <p>someemail@email.com</p>
+										<p>Totally Real, 'Murica</p>
+										<p>someemail@email.com</p>
         </div>
       </div>
 
