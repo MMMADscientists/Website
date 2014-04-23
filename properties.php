@@ -33,10 +33,10 @@ $user = $_SESSION['user'];
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="properties.php">My Properties</a></li>
-					<li><a href="settings.php">Settings</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li style="color:white"><?php echo "Welcome $user"; ?></li>
+					<a class="btn btn-logout" href="logout.php">Logout</a>
 				</ul>
 			</div><!--/.nav-collapse -->
 		  </div>
@@ -75,7 +75,7 @@ $user = $_SESSION['user'];
 				echo "        <form name='property_add' method='post' action='property_add.php'>\n";
 				echo "          <div class='modal-body'>\n";
 				echo "            <label for='new_address'>Property Address:</label>\n";
-				echo "       	    <input type='text' name='new_address' id='new_address' size='15' required>\n";
+				echo "       	    <input type='text' name='new_address' id='new_address' size='40' required>\n";
 				echo "          </div>\n";
 				echo "          <div class='modal-footer'>\n";
 				echo "            <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>\n";
@@ -93,6 +93,7 @@ $user = $_SESSION['user'];
 				<thead>
 					<th>Go To</th>
 					<th>Address</th>
+					<th>Get Embed Script</th>
 					<th>Edit</th>
 					<th>Delete</th>
 				</thead>
@@ -110,14 +111,48 @@ $user = $_SESSION['user'];
 						echo "  <form name='properties' method='post' action='rooms.php'>\n";
 						echo "    <input type='hidden' id='prop_id' name='prop_id' value='$prop_id'>\n";
 						echo "    <input type='hidden' id='address' name='address' value='$address'>\n";
+						echo "    <input type='hidden' id='houseURL' name='houseURL' value='$house_url'>\n";
 						echo "    <button type='submit' class='btn btn-success'>Go!</button>\n";
 						echo "  </form>\n";
 						echo "</td>\n";
 						echo "<td>$address</td>\n";
 
+						// Get Embed Code Button
+						echo "<td>\n";
+						echo "  <button type='button' class='btn btn-default btn-md' data-toggle='modal' data-target='#modal-embed_code".$prop_id."'>\n";
+						echo "    <span class='glyphicon glyphicon-floppy-disk'></span>\n";
+						echo "  </button>\n";
+						//Get Embed Code Modal
+						echo "  <div class='modal fade' id='modal-embed_code".$prop_id."' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>\n";
+						echo "    <div class='modal-dialog modal-lg'>\n";
+						echo "      <div class='modal-content'>\n";
+						echo "        <div class='modal-header'>\n";
+						echo "          <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>\n";
+						echo "          <h4 class='modal-title' id='myModalLabel'>Here Is Your Embed Code!</h4>\n";
+						echo "        </div>\n";
+						echo "          <div class='modal-body'>\n";
+						echo "            <strong>This script will allow you to display your property tour on your website!</strong>\n";
+						echo "            <br/>\n";
+					 echo "            <br/>\n";
+						$prop_tour = "http://54.186.153.0/API/embed_js.php?i=".$prop_id."&w=720&h=480";
+						echo "            &ltscript&gt\n";
+						echo "												<br/>\n";
+						echo "              document.write(\"&lt\\x3Cscript src='".$prop_tour."' &gt&lt\\x3C/script&gt\");\n";
+						echo "												<br/>\n";
+						echo "            &lt/script&gt\n";
+						echo "          </div>\n";
+						echo "          <div class='modal-footer'>\n";
+						echo "            <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>\n";
+						echo "          </div>\n";
+						echo "      </div>\n";
+						echo "    </div>\n";
+						echo "  </div>\n";
+						//Edit Modal -- End
+						echo "</td>\n";
+						
 						// Edit Button
 						echo "<td>\n";
-						echo "  <button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-edit".$prop_id."'>\n";
+						echo "  <button type='button' class='btn btn-default btn-md' data-toggle='modal' data-target='#modal-edit".$prop_id."'>\n";
 						echo "    <span class='glyphicon glyphicon-pencil'></span>\n";
 						echo "  </button>\n";
 						//Edit Modal
@@ -147,7 +182,7 @@ $user = $_SESSION['user'];
 
 						// Delete Button
 						echo "<td>\n";
-						echo "  <button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-delete".$prop_id."'>\n";
+						echo "  <button type='button' class='btn btn-default btn-md' data-toggle='modal' data-target='#modal-delete".$prop_id."'>\n";
 						echo "    <span class='glyphicon glyphicon-remove'></span>\n";
 						echo "  </button>\n";
 						//Delete Modal
@@ -174,16 +209,20 @@ $user = $_SESSION['user'];
 						//Delete Modal -- End
 						echo "</td>\n";
 						echo "</tr>\n";
+
+
 					}
 					?>
 				</tbody>
 			</table>	
+			<br/>
+			<footer>
+    <p>&copy; MMMadScientists 2014</p>
+   </footer>
+			
 		</div>
 		
-      <footer>
-        <p>&copy; MMMadScientists 2014</p>
-      </footer>
-    </div> <!-- /container -->
+      
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

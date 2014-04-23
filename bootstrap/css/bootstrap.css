@@ -2148,7 +2148,7 @@ fieldset[disabled] .btn-register,
 .btn-register[disabled]:hover,
 fieldset[disabled] .btn-register:hover,
 .btn-register.disabled:focus,
-.btn-success[disabled]:focus,
+.btn-register[disabled]:focus,
 fieldset[disabled] .btn-register:focus,
 .btn-register.disabled:active,
 .btn-register[disabled]:active,
@@ -2165,6 +2165,52 @@ fieldset[disabled] .btn-register.active {
 }
 
 /* End Added Register Button Code  */
+
+/* Added to Make LogOut Type Button (Not sure if Needed) Doug */
+.btn-logout {
+  color: #FF0000;
+  background-color: #31353d;
+  border-color: #31353d;
+}
+.btn-logout:hover,
+.btn-logout:focus,
+.btn-logout:active,
+.btn-logout.active,
+.open .dropdown-toggle.btn-logout {
+  color: #fff;
+  background-color: #700000;
+  border-color: #31353d;
+}
+.btn-logout:active,
+.btn-logout.active,
+.open .dropdown-toggle.btn-logout {
+  background-image: none;
+}
+.btn-logout.disabled,
+.btn-logout[disabled],
+fieldset[disabled] .btn-logout,
+.btn-logout.disabled:hover,
+.btn-logout[disabled]:hover,
+fieldset[disabled] .btn-logout:hover,
+.btn-logout.disabled:focus,
+.btn-logout[disabled]:focus,
+fieldset[disabled] .btn-logout:focus,
+.btn-logout.disabled:active,
+.btn-logout[disabled]:active,
+fieldset[disabled] .btn-logout:active,
+.btn-logout.disabled.active,
+.btn-logout[disabled].active,
+fieldset[disabled] .btn-logout.active {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+.btn-logout .badge {
+  color: #5cb85c;
+  background-color: #fff;
+}
+
+/* End Added Register Button Code  */
+
 
 
 .btn-success {

@@ -51,9 +51,9 @@ include('internal/connect.php');
 			<div class="container">
 
 				<!--Added Image DL -->
-				<h1> <img src='bootstrap/img/globe_logo.png' width="150" height="150"> <font color=#F2F5F6>Login Failed</font> </h1>
+				<h1> <img src='bootstrap/img/loginfail.png' width="150" height="150"> <font color=#F2F5F6>Login Failed</font> </h1>
 
-				<p> <font color=#080808>We're sorry, but your login failed. Please try again! Or click here for "Forgotten Password"</font> </p>
+				<p> <font color=#080808>We're sorry, but your login failed. Please try again!</font> </p>
 			</div>
 		</div>
 

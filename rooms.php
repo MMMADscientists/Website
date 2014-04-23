@@ -6,6 +6,7 @@ include('internal/connect.php');
 $user = $_SESSION['user'];
 $prop_id = $_POST['prop_id'];
 $address = $_POST['address'];
+$house_url = $_POST['houseURL'];
 ?>
   <head>
     <meta charset="utf-8">
@@ -35,10 +36,10 @@ $address = $_POST['address'];
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="properties.php">My Properties</a></li>
-					<li><a href="settings.php">Settings</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li style="color:white"><?php echo "Welcome $user"; ?></li>
+					<li style="color:white"><?php echo "Welcome $user\n"; ?></li>
+					<a class="btn btn-logout" href="logout.php">Logout</a>
 				</ul>
 			</div><!--/.nav-collapse -->
 		  </div>
@@ -47,8 +48,11 @@ $address = $_POST['address'];
 		<div class="jumbotron">
 			<div class="container">
 				<?php
-				echo "<h1> <font color=#F2F5F6> $address </font> </h1>";
 				
+				if($house_url)
+					echo "<img src='$house_url' width='920' height='350'>\n";
+					
+				echo "<h1> <font color=#F2F5F6> $address </font> </h1>\n";
 
 				//<!-- Kosler, Why this no worky? -->
 				//echo "<script src = 'http://54.186.153.0/API/embed_js.php?i=$prop_id'></script>\n";
@@ -71,10 +75,23 @@ $address = $_POST['address'];
 		
 		<div class="container">
 			<p>	
-				<button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-add'>
-					<span class='glyphicon glyphicon-plus'></span>
-				</button>
-				Add A New Room
+				<?php
+				echo "<form name='tour' method='post' action='tour.php'>\n";
+				// Add New Room Button
+				echo "<button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-add'>\n";
+				echo"	<span class='glyphicon glyphicon-plus'></span>\n";
+				echo"</button>\n";
+				echo"Add A New Room\n";
+				
+				echo"&nbsp &nbsp &nbsp\n";
+
+				// Take Tour Button
+				echo "		<input type='hidden' name='prop_id' id='prop_id' value='$prop_id'>\n";
+				echo "		<input type='hidden' name='address' id='address' value='$address'>\n";
+				echo "		<button type='submit' class='btn btn-default btn-lg'><span class='glyphicon glyphicon-play'></span></button>\n";
+				echo " Tour\n";
+				echo "</form>\n";
+				?>
 			</p>
 
 
@@ -92,11 +109,6 @@ $address = $_POST['address'];
 				echo "            <input type='hidden' name='prop_id' id='prop_id' value='$prop_id'>\n";
 				echo "            <label for='room_name'>Room Name:</label>\n";
 				echo "       	    <input type='text' name='room_name' id='room_name' size='15' required>\n";
-				echo "            <br>\n";
-				echo "            <br>\n";
-				echo "            <label for='photo_file'>Room PhotoSphere:</label>\n";
-				echo "			         <input type='file' name='photo_file' id='photo_file'>\n";
-									//Probably going to need to do something with connections here
 				echo "          </div>\n";
 				echo "          <div class='modal-footer'>\n";
 				echo "            <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>\n";
@@ -106,10 +118,12 @@ $address = $_POST['address'];
 				echo "      </div>\n";
 				echo "    </div>\n";
 				echo "  </div>\n";
-				//Edit Modal -- End
+				//Add Modal -- End
 			?>
 
-
+			
+				
+			
 
 
 
@@ -117,6 +131,7 @@ $address = $_POST['address'];
 				<thead>
 					<th>Name</th>
 					<th>Edit</th>
+					<th>Make Connections</th>
 					<th>Delete</th>
 				</thead>
 				<tbody>
@@ -149,16 +164,27 @@ $address = $_POST['address'];
 						echo "          </div>\n";
 						echo "          <div class='modal-footer'>\n";
 						echo "            <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>\n";
-						echo "			  <button type='submit' class='btn btn-primary'>Update</button>\n";
+						echo "			         <button type='submit' class='btn btn-primary'>Update</button>\n";
 						echo "          </div>\n";
 						echo "        </form>\n";
 						echo "      </div>\n";
 						echo "    </div>\n";
 						echo "  </div>\n";
 						//Edit Modal -- End
-						
 						echo "</td>\n";
+
+
+						// Make Connections
 						echo "<td>\n";
+						echo "<form name='room_connection' method='post' action='room_connection.php'>\n";
+						echo "		<input type='hidden' name='prop_id' id='prop_id' value='$prop_id'>\n";
+						echo "		<input type='hidden' name='room_id' id='room_id' value='$room_id'>\n";
+						echo "		<input type='hidden' name='room_name' id='room_name' value='$room_name'>\n";
+						echo "		<input type='hidden' name='address' id='address' value='$address'>\n";
+						echo "		<button type='submit' class='btn btn-default btn-lg'><span class='glyphicon glyphicon-resize-small'></span></button>\n";
+						echo "</form>\n";
+						echo "</td>\n";
+
 						echo "<td>\n";
 						echo "  <button type='button' class='btn btn-default btn-lg' data-toggle='modal' data-target='#modal-delete".$room_id."'>\n";
 						echo "    <span class='glyphicon glyphicon-remove'></span>\n";
@@ -197,11 +223,11 @@ $address = $_POST['address'];
 
 				</tbody>
 			</table>
+			<br/>
+			<footer>
+        		<p>&copy; MMMadScientists 2014</p>
+      		</footer>
 		</div>
-		
-      <footer>
-        <p>&copy; MMMadScientists 2014</p>
-      </footer>
     </div> <!-- /container -->
 
 
