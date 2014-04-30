@@ -68,5 +68,5 @@ if($numrows2 > 0)
 	}
 }
 	
-header("location:properties.php");
+header("location:rooms.php");
 ?>

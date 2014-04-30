@@ -50,7 +50,7 @@ include('internal/connect.php');
 			</div>
 		</div>
       <footer>
-        <p>&copy; MMMadScientists 2014</p>
+        <p>&copy; Promenade Virtual Tours 2014</p>
       </footer>
     </div> <!-- /container -->
 

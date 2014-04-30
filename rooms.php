@@ -4,9 +4,30 @@
 session_start();
 include('internal/connect.php');
 $user = $_SESSION['user'];
-$prop_id = $_POST['prop_id'];
-$address = $_POST['address'];
-$house_url = $_POST['houseURL'];
+
+if($_POST['prop_id'])
+{
+	$_SESSION['prop_id'] = $_POST['prop_id'];
+	$prop_id = $_SESSION['prop_id'];
+}
+else
+	$prop_id = $_SESSION['prop_id'];
+	
+if($_POST['address'])
+{
+	$_SESSION['address'] = $_POST['address'];
+	$address = $_SESSION['address'];
+}
+else
+	$address = $_SESSION['address'];
+	
+if($_POST['houseURL'])
+{
+	$_SESSION['houseURL'] = $_POST['houseURL'];
+	$house_url = $_SESSION['houseURL'];
+}
+else
+	$house_url = $_SESSION['houseURL'];
 ?>
   <head>
     <meta charset="utf-8">
@@ -35,7 +56,7 @@ $house_url = $_POST['houseURL'];
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="properties.php">My Properties</a></li>
+					<li><a href="properties.php">My Properties</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li style="color:white"><?php echo "Welcome $user\n"; ?></li>
@@ -225,7 +246,7 @@ $house_url = $_POST['houseURL'];
 			</table>
 			<br/>
 			<footer>
-        		<p>&copy; MMMadScientists 2014</p>
+        		<p>&copy; Promenade Virtual Tours 2014</p>
       		</footer>
 		</div>
     </div> <!-- /container -->

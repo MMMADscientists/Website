@@ -66,7 +66,7 @@ include('internal/connect.php');
 		</div>
 		
 		<footer>
-				<p>&copy; MMMadScientists 2014</p>
+				<p>&copy; Promenade Virtual Tours 2014</p>
 		</footer>
 		
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

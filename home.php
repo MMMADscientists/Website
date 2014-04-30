@@ -50,6 +50,7 @@ include('internal/connect.php');
 				<center> <img src='bootstrap/img/globe_logo.png'> </center>
 				<center> <h1> <font color=#F2F5F6>Promenade Virtual Tours</font> </h1> </center>
 				<center> <p> <font color=#080808>Making a Virtual Tour of Your House, Simple and Easy</font> </p> <c/enter>
+				<center> <a href="https://play.google.com/store/apps?utm_source=en-us-ha&utm_medium=ha&utm_term=google+android+apps+market"><img src='bootstrap/img/androidAppStore.png' width='150' height='50'></a> </center>
 			</div>
 		</div>
 
@@ -69,24 +70,23 @@ include('internal/connect.php');
         </div>
         <div class="col-md-4">
           <h2>FAQ</h2>
-          <h4>What does MMMADScientists mean?</h4>
-										<p>Well pretty girl it means Michael Michael Michael Aaron Doug who all happen to be scientists in a computational nature!</p>
-										<h4>Why would I use your app?</h4>
-										<p>Because you'd be dumb not to...</p>
+          <h4>How can I add photos of my property?</h4>
+		  <p>Inside the Android App you will be able to upload Photospheres to our servers.</p>
+		  <h4>How do I connect rooms in my tour together?</h4>
+		  <p>Inside the properties page, each room has a button to create connections between rooms.</p>
           <p><a class="btn btn-default" href="faq.php" role="button">More &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>Contact</h2>
-          <p>123 Fake St.</p>
-										<p>Totally Real, 'Murica</p>
-										<p>someemail@email.com</p>
+          <h2 align='center'>Android Application</h2>
+		  <p align='center'><a href="https://play.google.com/store/apps?utm_source=en-us-ha&utm_medium=ha&utm_term=google+android+apps+market"><img src='bootstrap/img/android_icon.jpg' width='200' height='200'></a> </p>
+          <p align='center'>Available in the Android App Store</p>
         </div>
       </div>
 
       <hr>
 
       <footer>
-        <p>&copy; MMMadScientists 2014</p>
+        <p>&copy; Promenade Virtual Tours 2014</p>
       </footer>
     </div> <!-- /container -->
 

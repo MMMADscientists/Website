@@ -17,5 +17,5 @@
 		die($message);
 	}
 
-	header("location:properties.php");
+	header("location:room_connection.php");
 ?>

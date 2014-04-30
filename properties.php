@@ -134,12 +134,9 @@ $user = $_SESSION['user'];
 						echo "            <strong>This script will allow you to display your property tour on your website!</strong>\n";
 						echo "            <br/>\n";
 					 echo "            <br/>\n";
-						$prop_tour = "http://54.186.153.0/API/embed_js.php?i=".$prop_id."&w=720&h=480";
-						echo "            &ltscript&gt\n";
+						$prop_tour = "http://promenadeVT/API/embed_js.php?i=".$prop_id."&w=720&h=480";
 						echo "												<br/>\n";
-						echo "              document.write(\"&lt\\x3Cscript src='".$prop_tour."' &gt&lt\\x3C/script&gt\");\n";
-						echo "												<br/>\n";
-						echo "            &lt/script&gt\n";
+						echo "              &ltscript src='".$prop_tour."'&gt&lt/script&gt";
 						echo "          </div>\n";
 						echo "          <div class='modal-footer'>\n";
 						echo "            <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>\n";
@@ -217,7 +214,7 @@ $user = $_SESSION['user'];
 			</table>	
 			<br/>
 			<footer>
-    <p>&copy; MMMadScientists 2014</p>
+    <p>&copy; Promenade Virtual Tours 2014</p>
    </footer>
 			
 		</div>

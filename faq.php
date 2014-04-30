@@ -42,27 +42,27 @@ include('internal/connect.php');
 		<div class="jumbotron">
 			<div class="container">
 				<h1>FAQ</h1>
-				<p>The sexiest and laziest answers to your frequently asked questions!</p>
+				<p>The questions you always wanted answered about Promenade Virtual Tours.</p>
 			</div>
 		</div>
 		<div class="container">
-				<h4>What does MMMADScientists mean?</h4>
-		  <p>Well pretty girl it means Michael Michael Michael Aaron Doug who all happen to be scientists in a computational nature!</p>
-				<br/>
-		  <h4>Why would I use your app?</h4>
-		  <p>Because you'd be dumb not to...</p>
-				<br/>
-				<h4>My Photospheres are coming out all crazy! Why?</h4>
-				<p>Probably because you suck at taking photos.</p>
-				<br/>
-				<h4>Can I add these tours to my website?</h4>
-				<p>Of course you can! Within a property's page you will find <strong>some sort of method we decided to use</strong> for you to implement your tours directly to your site!</p>
-				<br/>
-				<h4>Why do you have so many exclamation marks in your answer?!</h4>
-				<p>Because this is exciting!</p>
-				<br/>
+		  <h4>How can I add photos of my property?</h4>
+		  <p>Inside the Android App you will be able to upload Photospheres to our servers.</p>
+		  <br/>
+		  <h4>How do I connect rooms in my tour together?</h4>
+		  <p>BInside the properties page, each room has a button to create connections between rooms.</p>
+		  <br/>
+		  <h4>My Photospheres are coming out poorly. Is there a better way to take them?</h4>
+		  <p>We have found using a tripod with a phone mount is the best way to take high quality Photospheres. We recommend this <a href='http://www.amazon.com/Professional-Panasonic-Camcorders-MicroFiber-Cleaning/dp/B002ONSZPI/ref=sr_1_1?ie=UTF8&qid=1392239129&sr=8-1&keywords=Professional+72-inch+TRIPOD+FOR+All'>Tripod</a> and this <a src='http://www.amazon.com/ChargerCity-Exclusive-Adjustment-Easy-Adjust-Smartphone/dp/B008VI7ORA/ref=sr_1_2?s=wireless&ie=UTF8&qid=1391977801&sr=1-2&keywords=tripod+mount'>Phone Mount</a></p>
+		  <br/>
+		  <h4>Can I add these tours to my website?</h4>
+		  <p>Of course you can! The properties listing will have a button that will bring up an embed link for you to use.</p>
+		  <br/>
+		  <h4>Where can I find the Android Application?</h4>
+		  <p>To be announced...</p>
+		  <br/>
     <footer>
-      <p>&copy; MMMadScientists 2014</p>
+      <p>&copy; Promenade Virtual Tours 2014</p>
     </footer>
   <div> <!-- /container -->
 
